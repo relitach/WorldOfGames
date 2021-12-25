@@ -1,3 +1,8 @@
+import CurrencyRouletteGame
+import GuessGame
+import MemoryGame
+
+
 def welcome(name):
     return f"Hello {name} and welcome to the World of Games (WoG).\nHere you can find many cool games to play."
 
@@ -13,10 +18,16 @@ def load_game():
     game_difficulty = print_choose_text_and_get_chosen_number_with_range("Please choose game difficulty from 1 to 5: ",
                                                                          1, 5)
     print(f"Chosen game: {game}, Difficulty: {game_difficulty}")
+    if game == "1":
+        return MemoryGame.play(game_difficulty)
+    if game == "2":
+        return GuessGame.play(game_difficulty)
+    if game == "3":
+        return CurrencyRouletteGame.play(game_difficulty)
 
 
 def print_choose_text_and_get_chosen_number_with_range(text, start_range, stop_range):
-    options = list(map(str, range(start_range, stop_range+1)))
+    options = list(map(str, range(start_range, stop_range + 1)))
     chosen_number = input(text)
     while chosen_number not in options:
         print("#### Wrong input ####")
