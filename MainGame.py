@@ -1,6 +1,6 @@
 from Live import load_game, welcome
 
-print(welcome("Guy"))
+print(welcome("Ariel"))
 is_user_won = load_game()
 if is_user_won:
     print("you won !")

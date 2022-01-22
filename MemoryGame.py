@@ -1,6 +1,7 @@
 import os
 import random
 import time
+from Utils import screen_cleaner
 
 
 def generate_sequence(difficulty):
@@ -38,7 +39,7 @@ def play(difficulty):
     print("#### Memory Game ####")
     random_numbers = generate_sequence(int(difficulty))
     time.sleep(0.7)
-    clear_terminal()
+    screen_cleaner()
     list_from_user = get_list_from_user(int(difficulty))
     is_user_won = is_list_equal(random_numbers, list_from_user)
     return is_user_won

@@ -1,6 +1,7 @@
 import CurrencyRouletteGame
 import GuessGame
 import MemoryGame
+from Score import add_score
 
 
 def welcome(name):
@@ -19,11 +20,15 @@ def load_game():
                                                                          1, 5)
     print(f"Chosen game: {game}, Difficulty: {game_difficulty}")
     if game == "1":
-        return MemoryGame.play(game_difficulty)
+        is_user_won = MemoryGame.play(game_difficulty)
     if game == "2":
-        return GuessGame.play(game_difficulty)
+        is_user_won = GuessGame.play(game_difficulty)
     if game == "3":
-        return CurrencyRouletteGame.play(game_difficulty)
+        is_user_won = CurrencyRouletteGame.play(game_difficulty)
+
+    if is_user_won:
+        add_score(int(game_difficulty))
+    return is_user_won
 
 
 def print_choose_text_and_get_chosen_number_with_range(text, start_range, stop_range):
